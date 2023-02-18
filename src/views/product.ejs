@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% productByID.map( product => { %>
+    <h3>Informacion sobre: <%=product.name%></h3>
+        <form action="/update/<%=product.id%>?_method=PUT" method="POST">
+            <input type="text" value="<%=product.name%>" name="name">
+            <input type="text" value="<%=product.description%>" name="description">
+            <input type="number" value="<%=product.quantity%>" name="quantity">
+
+            <button type="submit">Actualizar</button>
+        </form>
+
+        <h4>Name: <%=product.name%></h4>
+        <h4>Description: <%=product.description%></h4>
+        <h4>Quantity: <%=product.quantity%></h4>
+    <% }) %>
+</body>
+</html>

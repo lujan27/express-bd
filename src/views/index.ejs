@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+    <% products.map( product => { %>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>quantity</th>
+            <th>Acciones</th>
+        </tr>
+        <tr id="<%=product.id%>">
+            <td><%=product.name%></td>
+            <td><%=product.description%></td>
+            <td><%=product.quantity%></td>
+            <td>
+                <a href="/products/<%=product.id%>">Modificar</a>
+                <form action="/delete/<%=product.id%>?_method=DELETE" method="POST">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+    <% }) %>
+    </table>
+    <a href="/products">New Product</a>
+</body>
+</html>
